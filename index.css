@@ -1,0 +1,101 @@
+* {
+    margin: 0px;
+}
+
+.container{
+    background-color: antiquewhite;
+}
+
+.header {
+    height: 200px;
+    width: 100%;
+    text-align: left;
+    background: url("https://nova-escola-producao.s3.amazonaws.com/EBUupJuWp5ttKkmKf5PZXN2rdxsMJ376JtzZaTE7MQRdbWVNrt5CsVgFGaDK/gettyimages-663622960.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto {
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.textos {
+    display: block;
+    margin-top: 35px;
+    
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color: red;
+    font-family: 'Syne Mono', monospace;
+}
+
+.cargo {
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
+.menu ul{
+    height: 50px;
+    background-color: bisque;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu ul li{
+    display: inline;
+}
+
+.menu ul li a{
+    
+    padding: 5px 10px;
+    display: inline-block;
+
+    background-color: orange;
+    color: red;
+    text-decoration: none;
+    border-bottom: 3px solid red;
+    font-size: 20px;
+}
+
+.menu ul li a:hover{
+    color: blue;
+    background-color: aqua;
+    border-bottom: 3px solid blue;
+}
+
+.main {
+    height: 500px;
+    background-color: antiquewhite;
+    display: block;
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+}
+
+.main p {
+    margin-top: 30px;
+    max-width: 600px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.footer {
+    height: 100px;
+    background-color: blueviolet;
+}
