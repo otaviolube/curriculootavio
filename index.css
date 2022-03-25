@@ -3,7 +3,7 @@
 }
 
 .container{
-    background-color: antiquewhite;
+    background-color: bisque;
 }
 
 .header {
@@ -80,7 +80,7 @@
 
 .main {
     height: 500px;
-    background-color: antiquewhite;
+    background-color: bisque;
     display: block;
     position: relative;
     max-width: 600px;
@@ -97,5 +97,10 @@
 
 .footer {
     height: 100px;
-    background-color: blueviolet;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: 'Pacifico', cursive;
 }
