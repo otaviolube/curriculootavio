@@ -2,8 +2,13 @@
     margin: 0px;
 }
 
+:root{
+    --principal: bisque;
+    --secundaria: #363612;
+}
+
 .container{
-    background-color: bisque;
+    background-color: var(--principal);
 }
 
 .header {
