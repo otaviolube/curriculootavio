@@ -1,3 +1,25 @@
+function gerarNumerosAleatorios(quantidade, min, max){
+    
+    if(max - min < quantidade){
+        console.log("Não existem números suficientes");
+        return;
+    }
+    
+    let numerosAleatorios = [];
+
+    for(let i = 0; i < quantidade; i++){
+        let numero = Math.ceil(Math.random()*(max - min)) + min;
+        if(numerosAleatorios.indexOf(numero) !== -1){
+            i--;
+        }else{
+            numerosAleatorios.push(numero);
+        }
+    }
+
+    return numerosAleatorios;
+    
+}
+
 function gerarCartelaBingo(){
     let area_cartela = document.getElementById("cartela");
     let cartela = document.createElement("table");
@@ -24,13 +46,21 @@ function gerarCartelaBingo(){
     cabecalho_cartela.appendChild(linha);
     
     cartela.appendChild(cabecalho_cartela);
-    
+
+    let cartelaBingo = [];
+    cartelaBingo.push(gerarNumerosAleatorios(5,1,15));
+    cartelaBingo.push(gerarNumerosAleatorios(5,16,30));
+    cartelaBingo.push(gerarNumerosAleatorios(5,31,45));
+    cartelaBingo.push(gerarNumerosAleatorios(5,46,60));
+    cartelaBingo.push(gerarNumerosAleatorios(5,61,75));
+
+    console.log(cartelaBingo);
     
     for (let i = 0; i < 5; i++) {
         let linha_dados = document.createElement("tr");
         for (let j = 0; j < 5; j++) {
             let td = document.createElement("td");
-            td.innerText = Math.ceil(Math.random() * 75);
+            td.innerText = cartelaBingo[j][i];
             linha_dados.appendChild(td);
         }
         corpo_cartela.appendChild(linha_dados);

@@ -7,6 +7,7 @@
 
 #cartela table{
     border: 1px solid black;
+    margin: 10px;
 }
 
 #cartela thead tr {
@@ -22,4 +23,19 @@
     width: 75px;
     text-align: center;
     border: 1px solid black;
+}
+
+#cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cabecalho button{
+    margin: 10px;
+    background-color: orange;
+    width: 200px;
+    height: 60px;
+    font-family: 'Syne Mono', monospace;
+    font-size: 20px;
 }
