@@ -70,3 +70,35 @@ function gerarCartelaBingo(){
     area_cartela.appendChild(cartela);
 }
 
+function deletarCartelas(){
+
+    let cartelas = document.getElementsByTagName("table");
+
+    console.log(cartelas.length)
+
+    for(let i = 0; i < cartelas.length; i++){
+        cartelas[i].remove();
+    }
+
+}
+
+function sorteio(){
+
+    let divsorteados = document.getElementById("sorteados");
+
+    let numerosSorteados = []
+
+    let intervalo = setInterval(function(){
+        console.log(numerosSorteados)
+        let aleatorio = Math.ceil(Math.random()*75);
+        if(numerosSorteados.indexOf(aleatorio) === -1){
+            numerosSorteados.push(aleatorio);
+            let numero = document.createElement("span");
+            numero.innerText = aleatorio;
+            divsorteados.appendChild(numero);
+        }
+
+        if(numerosSorteados.length === 75) clearInterval(intervalo);
+    }, 2000)
+
+}
