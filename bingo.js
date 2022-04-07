@@ -84,6 +84,13 @@ function deletarCartelas(){
 
 function sorteio(){
 
+    let cartelas = document.getElementsByTagName("table");
+
+    if(cartelas.length === 0){
+        alert("Você precisa criar uma cartela antes!");
+        return;
+    }
+
     let divsorteados = document.getElementById("sorteados");
 
     let numerosSorteados = []
@@ -96,9 +103,18 @@ function sorteio(){
             let numero = document.createElement("span");
             numero.innerText = aleatorio;
             divsorteados.appendChild(numero);
+            //Conferir as cartelas
+            for(let i = 0; i < cartelas.length; i++){
+                let numerosCartela = cartelas[i].getElementsByTagName("td");
+                for(let j = 0; j < numerosCartela.length; j++){
+                    if(numerosCartela[j].innerText == aleatorio){
+                        numerosCartela[j].style.backgroundColor = "green";
+                    }
+                }
+            }
         }
 
         if(numerosSorteados.length === 75) clearInterval(intervalo);
-    }, 2000)
+    }, 500)
 
 }
