@@ -21,7 +21,20 @@ function gerarNumerosAleatorios(quantidade, min, max) {
 }
 
 function gerarCartelaBingo() {
+
+    let dono = prompt("Digite o nome do dono da cartela:");
+    let h3dono = document.createElement("h3");
+    h3dono.innerText = dono;
+
     let area_cartela = document.getElementById("cartela");
+
+    let divCartela = document.createElement("div");
+    divCartela.appendChild(h3dono);
+
+    divCartela.style.textAlign = "center";
+    divCartela.style.fontSize = "24px";
+
+
     let cartela = document.createElement("table");
     let cabecalho_cartela = document.createElement("thead");
     let corpo_cartela = document.createElement("tbody");
@@ -67,7 +80,9 @@ function gerarCartelaBingo() {
     }
 
     cartela.appendChild(corpo_cartela);
-    area_cartela.appendChild(cartela);
+    divCartela.appendChild(cartela);
+
+    area_cartela.appendChild(divCartela);
 }
 
 function deletarCartelas() {
