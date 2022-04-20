@@ -85,17 +85,36 @@ function gerarCartelaBingo() {
     area_cartela.appendChild(divCartela);
 }
 
+var jogoEstaAcontecendo = false;
+
 function deletarCartelas() {
 
-    let cartelas = document.getElementsByTagName("table");
+    if(jogoEstaAcontecendo){
+        alert("Você não pode limpar as cartelas enquanto o jogo está acontecendo!");
+        return;
+    }
 
-    console.log(cartelas.length)
+    let divCartela = document.getElementById("cartela");
+    let divSorteio = document.getElementById("sorteados");
+    let cartelas = divCartela.getElementsByTagName("table");
+    let h3donos = divCartela.getElementsByTagName("h3");
+    let spans = divSorteio.getElementsByTagName("span");
 
-    for (let i = 0; i < cartelas.length; i++) {
-        cartelas[i].remove();
+    while(cartelas[0]){
+        cartelas[0].parentNode.removeChild(cartelas[0]);
+    }
+
+    while(h3donos[0]){
+        h3donos[0].parentNode.removeChild(h3donos[0]);
+    }
+
+    while(spans[0]){
+        spans[0].parentNode.removeChild(spans[0]);
     }
 
 }
+
+var intervalo;
 
 function sorteio() {
 
@@ -110,7 +129,8 @@ function sorteio() {
 
     let numerosSorteados = []
 
-    let intervalo = setInterval(function () {
+    intervalo = setInterval(function () {
+        jogoEstaAcontecendo = true;
         let aleatorio = 0;
         do {
             aleatorio = Math.ceil(Math.random() * 75);
@@ -132,6 +152,7 @@ function sorteio() {
             if (verificarVencedor(numerosCartela, numerosSorteados)) {
                 alert("Parabéns! Você ganhou o bingo!");
                 clearInterval(intervalo);
+                jogoEstaAcontecendo = false;
             }
         }
 
@@ -139,6 +160,15 @@ function sorteio() {
         if (numerosSorteados.length === 75) clearInterval(intervalo);
     }, 200)
 
+}
+
+function pararJogo(){
+    if(jogoEstaAcontecendo){
+        clearInterval(intervalo);
+        jogoEstaAcontecendo = false;
+    }else{
+        alert("Não existe nenhum jogo acontecendo!")
+    }
 }
 
 function verificarVencedor(cartela, numerosSorteados) {
