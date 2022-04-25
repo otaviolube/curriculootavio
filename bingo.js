@@ -118,7 +118,8 @@ var intervalo;
 
 function sorteio() {
 
-    let cartelas = document.getElementsByTagName("table");
+    let divCartela = document.getElementById("cartela");
+    let cartelas = divCartela.getElementsByTagName("div");
 
     if (cartelas.length === 0) {
         alert("Você precisa criar uma cartela antes!");
@@ -142,6 +143,7 @@ function sorteio() {
         divsorteados.appendChild(numero);
         //Conferir as cartelas
         for (let i = 0; i < cartelas.length; i++) {
+            let nomeJogador = cartelas[i].getElementsByTagName("h3")[0].innerText;
             let numerosCartela = cartelas[i].getElementsByTagName("td");
             for (let j = 0; j < numerosCartela.length; j++) {
                 if (numerosCartela[j].innerText == aleatorio) {
@@ -150,7 +152,7 @@ function sorteio() {
             }
 
             if (verificarVencedor(numerosCartela, numerosSorteados)) {
-                alert("Parabéns! Você ganhou o bingo!");
+                alert(`Parabéns ${nomeJogador}! Você venceu o bingo!!`);
                 clearInterval(intervalo);
                 jogoEstaAcontecendo = false;
             }
